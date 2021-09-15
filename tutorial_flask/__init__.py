@@ -10,8 +10,9 @@ def create_app():
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
     from . import db
+    from . import auth
     db.init_app(app)
-
+    app.register_blueprint(auth.bp)
     return app
 
 
